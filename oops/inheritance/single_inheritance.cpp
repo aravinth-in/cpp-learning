@@ -5,7 +5,7 @@ using namespace std;
 
 
 class Base {
-protected:
+private:
     int value;
 
 public:
@@ -59,11 +59,29 @@ public:
 };
 
 int main() {
-    // Use smart pointer to manage Derived object
-    unique_ptr<Derived> obj = make_unique<Derived>();
-    obj->setValue(10);
-    obj->setAdditionalValue(20);
-    obj->showDetails();
+    Base baseObj;
+    baseObj.setValue(489);
+    baseObj.displayValue();
 
+    // Use smart pointer to manage Derived object
+    unique_ptr<Derived> derivedObj = make_unique<Derived>();
+    derivedObj->setValue(10);
+    derivedObj->setAdditionalValue(20);
+    derivedObj->displayAdditionalValue();
+    derivedObj->showDetails();
     return 0;
 }
+
+/*
+OUTPUT
+Base constructor called
+Base value: 489
+Base constructor called
+Derived constructor called
+Derived additional value: 20
+Base value: 10
+Derived additional value: 20
+Derived destructor called
+Base destructor called
+Base destructor called
+*/

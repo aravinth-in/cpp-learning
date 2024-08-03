@@ -6,7 +6,14 @@
 
 class MediaFactory {
 public:
-    virtual ~MediaFactory() = default;
+    MediaFactory() {
+        std::cout << "MediaFactory created." << std::endl;
+    }
+
+    virtual ~MediaFactory() {
+        std::cout << "MediaFactory destroyed." << std::endl;
+    }
+    
     virtual MediaPlayer* createPlayer(const std::string& type) const = 0;
     virtual MediaDecoder* createDecoder(const std::string& type) const = 0;
 };

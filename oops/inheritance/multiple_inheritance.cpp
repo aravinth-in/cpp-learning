@@ -52,7 +52,7 @@ public:
 class Combined : public MathOperations, public StringManipulation {
 public:
     // Constructor
-    Combined() {
+    Combined() : MathOperations(0) {
         cout << "Combined constructor called" << endl;
     }
 
@@ -82,7 +82,7 @@ public:
 
 int main() {
 
-    MathOperations mathObj;
+    MathOperations mathObj(0);
     int add = mathObj.add(1,2);
     int multiply = mathObj.multiply(3,4);
     cout << "Add: " << add << endl;

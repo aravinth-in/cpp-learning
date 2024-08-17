@@ -19,8 +19,22 @@ def main():
     if not os.path.exists(build_path):
         os.makedirs(build_path)
 
+    # Detect platform and set CMake generator and options accordingly
+    if sys.platform == "darwin":
+        # macOS
+        cmake_generator = "Xcode"
+        cmake_architecture = "-DCMAKE_OSX_ARCHITECTURES=arm64"
+        cmake_configure_command = f'cmake -S "{project_path}" -B "{build_path}" -G "{cmake_generator}" {cmake_architecture}'
+    elif sys.platform == "win32":
+        # Windows
+        cmake_generator = "Visual Studio 17 2022"
+        cmake_architecture = "-A x64"
+        cmake_configure_command = f'cmake -S "{project_path}" -B "{build_path}" -G "{cmake_generator}" {cmake_architecture}'
+    else:
+        print("Unsupported platform")
+        sys.exit(1)
+
     # Run CMake configuration command
-    cmake_configure_command = f'cmake -S "{project_path}" -B "{build_path}" -G "Visual Studio 17 2022" -A x64'
     run_command(cmake_configure_command)
 
     # Run CMake build command

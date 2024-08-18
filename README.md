@@ -40,7 +40,7 @@ To compile and execute the code, follow these steps:
     ./my_program
     ```
 
-## Build using CMake on Windows
+## Build using CMake on Windows and macOS
 
 Alternatively, you can use CMake to build your C++ code. Follow these steps:
 
@@ -48,6 +48,7 @@ Alternatively, you can use CMake to build your C++ code. Follow these steps:
 2. Navigate to the root directory of your C++ project.
 3. Use the following command to generate the build files:
 
+    #### For Windows
     ```sh
     mkdir build
     cmake -S "<project_path>/cpp-learning" -B "<project_path>/cpp-learning/build" -G "Visual Studio 17 2022" -A x64
@@ -55,19 +56,34 @@ Alternatively, you can use CMake to build your C++ code. Follow these steps:
     cmake --build "<project_path>/cpp-learning/build" --config <configuration> --verbose
     ```
 
+    #### For macOS
+    ```sh
+    mkdir build
+    cmake -S "<project_path>/cpp-learning" -B "<project_path>/cpp-learning/build" -G "Xcode"
+    cd build
+    cmake --build "<project_path>/cpp-learning/build" --config <configuration> --verbose
+    ```
+
     **OR**
 
     ```sh
-    python build.py
+    python build.py # By default, this builds in Debug mode
     ```
     **Note**: Replace `<configuration>` with either `Debug` or `Release`
 
-4. Open the solution file:
+4. Open the solution/project file:
 
-    Navigate to the build directory and open `cpp-learning.sln` in Visual Studio.
+    Navigate to the build directory and open `cpp-learning.sln` in Visual Studio (Windows) or `cpp-learning.xcodeproj` in Xcode (macOS).
+
+    #### For Windows
 
     ```sh
     <project_path>/cpp-learning/build/cpp-learning.sln
     ```
+    
+    #### For macOS
+    ```sh
+    <project_path>/cpp-learning/build/cpp-learning.xcodeproj
+    ```
 
-    This will open the solution in Visual Studio, where you can build and run the project.
+    This will open the solution in Visual Studio or the project in Xcode, where you can build and run the project.

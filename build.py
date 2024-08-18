@@ -13,7 +13,7 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_path = script_dir
     build_path = os.path.join(project_path, "build")
-    configuration = "Release"  # Change to "Debug" if needed
+    configuration = "Debug"  # Change to "Release" if needed
 
     # Create build directory if it doesn't exist
     if not os.path.exists(build_path):

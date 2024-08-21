@@ -5,6 +5,7 @@ set(SOURCE_FILES
     atomic_operation.cpp
     atomic_increment.cpp
     atomic_memory_order.cpp
+    lock_free_stack.cpp
 )
 
 foreach(SOURCE_FILE ${SOURCE_FILES})
